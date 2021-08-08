@@ -8,6 +8,7 @@
       Platzi
     </p>
 
+    <!-- vue-router nos agrega este componente que nos sirve para agregar un link -->
     <router-link to="/" class="mt-5 text-xl text-green-600 hover:underline">
       Volver a la p&aacute;gina de inicio
     </router-link>

@@ -8,11 +8,12 @@
       :loading="isLoading"
       :color="'#68d391'"
       :size="8"
-    ></beat-loader>
+    />
+
     <div v-show="!isLoading">
+      <!-- Nos permite remplazar el contenido del boton -->
       <slot></slot>
     </div>
-    
   </button>
 </template>
 
@@ -28,8 +29,9 @@ export default {
   },
 
   methods: {
+    // Emite un evento click
     buttonClick() {
-      this.$emit('click')
+      this.$emit('custom-click')
     },
   },
 }

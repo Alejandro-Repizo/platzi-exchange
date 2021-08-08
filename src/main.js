@@ -1,40 +1,43 @@
-/**
- * Realiza la importacion de vue (libreria) y
- * ademas la importacion del componente app
- *
- * */
-import Vue from 'vue' //es libreria porque no tiene ni punto ni barra
+// Realiza la importacion de la libreria, dado que no tiene punto o barra
+import Vue from 'vue'
+
+// Realiza la importacion del compontente App.vue
 import App from './App.vue'
+
+// Realiza la importacion de tailwind
 import '@/assets/css/tailwind.css'
+
+// Importacion de la libreria chartick
 import Chartkick from 'vue-chartkick'
+
+// Importacion de la libreria chart
 import Chart from 'chart.js'
+
+// Importacion de la libreria vue-spinners
 import { VueSpinners } from '@saeris/vue-spinners'
 
-// el @ hace referencia al directorio src
+// Realizamos la importacion de las rutas del vue-router
+import router from '@/router'
 
-// Router y filtros
-import router from './router'
+// Realizamos la importacion para filtrar el dato del dolar
 import { dollarFilter } from '@/filters'
+
+// Realizamos la importacion para filtrar el porcentaje
 import { percentFilter } from '@/filters'
 
-Vue.filter('dollar', dollarFilter)
-Vue.filter('percent', percentFilter)
-
-// Usar las librerias externas
+// Con la funcion use() le decimos a Vue que uitlice la libreria
 Vue.use(VueSpinners)
 Vue.use(Chartkick.use(Chart))
 
-/**
- * Configuracion para tips de produccion
- */
+// Usamos el filter() para pasarle el filtro y el nombre a usar en la app
+Vue.filter('dollar', dollarFilter)
+Vue.filter('percent', percentFilter)
+
+// Configuracion para obtener los tips de produccion
 Vue.config.productionTip = false
 
-/**
- * Instancia de Vue,
- * la function mount tiene la misma
- * funcion que el;
- */
+// Declaracion de la instacia de Vue a traves de la funcion render
 new Vue({
   router: router,
-  render: (h) => h(App), //El seteo de la aplicacion
+  render: (h) => h(App),
 }).$mount('#app')
